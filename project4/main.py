@@ -517,7 +517,8 @@ while True:
                     enemy.hp -= bullet.dmg
                     if enemy.hp <= 0:
                         lvl4_enemies.remove(enemy)
-                        coins += enemy.money
+                        if enemy != boss:
+                            coins += enemy.money
                         break
 
             for bullet in bullets:
@@ -531,7 +532,7 @@ while True:
                     bullets.remove(bullet)
                     break
             
-            if tick2 == 480:
+            if tick2 == 480 and boss in lvl4_enemies:
                 i = 0
                 while i != 5:
                     group = random.randint(1,3)
